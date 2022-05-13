@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\Authentication\UserAuthenticationController;
+use App\Http\Controllers\Authentication\EmailVerifyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,16 @@ Route::post('register', [UserAuthenticationController::class, 'register']);
 Route::post('login', [UserAuthenticationController::class, 'login']);
 
 
-Route::get('email/verify/{id}/{hash}', [EmailVerifyController::class, 'verify'])->middleware(['signed'])->name('verification.verify');
-Route::post('email/verification-notification', [EmailVerifyController::class, 'sendVerificationEmail'])->middleware(['auth:api'])->name('verification.send');
+// Verify email
+Route::get('/email/verify/{id}/{hash}', [EmailVerifyController::class, '__invoke'])
+    ->middleware(['signed', 'throttle:6,1'])
+    ->name('verification.verify');
+
+// Resend link to verify email
+Route::post('/email/verify/resend', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth:api', 'throttle:6,1'])->name('verification.send');
 
 // put all api protected routes here
 Route::middleware('auth:api')->group(function () {

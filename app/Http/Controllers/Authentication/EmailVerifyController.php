@@ -9,50 +9,18 @@ use App\Models\User;
 
 class EmailVerifyController extends Controller
 {
-    public function __construct(Request $request) {
-        // $this->middleware('signed')->only('verify');
-        if (!$request->hasValidSignature()) {
-            return response()->json([
-              'status' => 'Unauthorized',
-              'message' => 'Email Verfifcation Link has expired, visit dashboard to resend Verfifcation link'
-            ], 403);
-        }
-        $this->middleware('throttle:6,1')->only('verify');
-      }
-
-      public function sendVerificationEmail(Request $request)
+    public function __invoke(Request $request)
     {
-        if ($request->user()->hasVerifiedEmail()) {
-            return [
-                'message' => 'Already Verified'
-            ];
-        }
-
-        $request->user()->sendEmailVerificationNotification();
-
-        return ['status' => 'verification-link-sent'];
-    }
-
-    public function verify(Request $request)
-    {
-        $user = User::findOrFail($request->id);
-
-        if ($request->route('id') != $user->getKey()) {
-            throw new AuthorizationException;
-        }
+        $user = User::find($request->route('id'));
 
         if ($user->hasVerifiedEmail()) {
-            return [
-                'message' => 'Email already verified'
-            ];
+            return response()->json(["status" => "success", "message" => "Email Already Verified"], 200);
         }
 
         if ($user->markEmailAsVerified()) {
             event(new Verified($user));
         }
 
-        return [
-            'message'=>'Email has been verified'
-        ];
+        return response()->json(["status" => "success", "message" => "Email Verification Successful"], 200);
     }
 }
