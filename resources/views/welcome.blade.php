@@ -1,132 +1,1105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Laravel</title>
 
-        <!-- Styles -->
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.dark\:text-gray-500{--tw-text-opacity:1;color:#6b7280;color:rgba(107,114,128,var(--tw-text-opacity))}}
-        </style>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
+    <!-- Styles -->
+    <style>
+        /* full page background */
+        html {
+            background: #3E5E5D;
+        }
+
+        /* batman animation - trembling in air */
+        .batman {
+            -webkit-animation-duration: 2s;
+            -moz-animation-duration: 2s;
+            -ms-animation-duration: 2s;
+            -o-animation-duration: 2s;
+            animation-duration: 2s;
+            -webkit-animation-name: tremble;
+            -moz-animation-name: tremble;
+            -ms-animation-name: tremble;
+            -o-animation-name: tremble;
+            animation-name: tremble;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-iteration-count: infinite;
+            -ms-animation-iteration-count: infinite;
+            -o-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            -webkit-animation-direction: alternate;
+            -moz-animation-direction: alternate;
+            -ms-animation-direction: alternate;
+            -o-animation-direction: alternate;
+            animation-direction: alternate;
+            margin: 0 auto;
+            margin-top: 30px;
+            width: 960px;
+        }
+
+        @keyframes tremble {
+            from {
+                margin-top: 30px;
+                transform: rotate(-3deg);
+                -webkit-transform: rotate(-3deg);
             }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+            to {
+                transform: rotate(3deg);
+                -webkit-transform: rotate(3deg);
+                margin-top: 40px;
+            }
+        }
 
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
-                        <g clip-path="url(#clip0)" fill="#EF3B2D">
-                            <path d="M248.032 44.676h-16.466v100.23h47.394v-14.748h-30.928V44.676zM337.091 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.431 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162-.001 2.863-.479 5.584-1.432 8.161zM463.954 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.432 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162 0 2.863-.479 5.584-1.432 8.161zM650.772 44.676h-15.606v100.23h15.606V44.676zM365.013 144.906h15.607V93.538h26.776V78.182h-42.383v66.724zM542.133 78.182l-19.616 51.096-19.616-51.096h-15.808l25.617 66.724h19.614l25.617-66.724h-15.808zM591.98 76.466c-19.112 0-34.239 15.706-34.239 35.079 0 21.416 14.641 35.079 36.239 35.079 12.088 0 19.806-4.622 29.234-14.688l-10.544-8.158c-.006.008-7.958 10.449-19.832 10.449-13.802 0-19.612-11.127-19.612-16.884h51.777c2.72-22.043-11.772-40.877-33.023-40.877zm-18.713 29.28c.12-1.284 1.917-16.884 18.589-16.884 16.671 0 18.697 15.598 18.813 16.884h-37.402zM184.068 43.892c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002-35.648-20.524a2.971 2.971 0 00-2.964 0l-35.647 20.522-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v38.979l-29.706 17.103V24.493a3 3 0 00-.103-.776c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002L40.098 1.396a2.971 2.971 0 00-2.964 0L1.487 21.919l-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v122.09c0 1.063.568 2.044 1.489 2.575l71.293 41.045c.156.089.324.143.49.202.078.028.15.074.23.095a2.98 2.98 0 001.524 0c.069-.018.132-.059.2-.083.176-.061.354-.119.519-.214l71.293-41.045a2.971 2.971 0 001.489-2.575v-38.979l34.158-19.666a2.971 2.971 0 001.489-2.575V44.666a3.075 3.075 0 00-.106-.774zM74.255 143.167l-29.648-16.779 31.136-17.926.001-.001 34.164-19.669 29.674 17.084-21.772 12.428-43.555 24.863zm68.329-76.259v33.841l-12.475-7.182-17.231-9.92V49.806l12.475 7.182 17.231 9.92zm2.97-39.335l29.693 17.095-29.693 17.095-29.693-17.095 29.693-17.095zM54.06 114.089l-12.475 7.182V46.733l17.231-9.92 12.475-7.182v74.537l-17.231 9.921zM38.614 7.398l29.693 17.095-29.693 17.095L8.921 24.493 38.614 7.398zM5.938 29.632l12.475 7.182 17.231 9.92v79.676l.001.005-.001.006c0 .114.032.221.045.333.017.146.021.294.059.434l.002.007c.032.117.094.222.14.334.051.124.088.255.156.371a.036.036 0 00.004.009c.061.105.149.191.222.288.081.105.149.22.244.314l.008.01c.084.083.19.142.284.215.106.083.202.178.32.247l.013.005.011.008 34.139 19.321v34.175L5.939 144.867V29.632h-.001zm136.646 115.235l-65.352 37.625V148.31l48.399-27.628 16.953-9.677v33.862zm35.646-61.22l-29.706 17.102V66.908l17.231-9.92 12.475-7.182v33.841z"/>
-                        </g>
-                    </svg>
-                </div>
+        @-webkit-keyframes tremble {
+            from {
+                margin-top: 30px;
+                transform: rotate(-3deg);
+                -webkit-transform: rotate(-3deg);
+            }
 
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation</a></div>
-                            </div>
+            to {
+                transform: rotate(3deg);
+                -webkit-transform: rotate(3deg);
+                margin-top: 40px;
+            }
+        }
 
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
-                                </div>
-                            </div>
-                        </div>
+        .head {
+            margin: 0 auto;
+            width: 125px;
+        }
 
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Laracasts</a></div>
-                            </div>
+        .left-ear {
+            border-bottom: 70px solid #000;
+            border-left: 5px solid transparent;
+            border-right: 30px solid transparent;
+            display: inline;
+            float: left;
+            height: 0;
+            width: 0;
+        }
 
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </div>
-                            </div>
-                        </div>
+        .right-ear {
+            border-bottom: 70px solid #000;
+            border-left: 30px solid transparent;
+            border-right: 5px solid transparent;
+            float: right;
+            height: 0;
+            width: 0;
+        }
 
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Laravel News</a></div>
-                            </div>
+        .mask {
+            background: #000;
+            -webkit-border-radius: 0 0 10px 10px;
+            -moz-border-radius: 0 0 10px 10px;
+            border-radius: 0 0 10px 10px;
+            clear: both;
+            height: 130px;
+            width: 125px;
+        }
 
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </div>
-                            </div>
-                        </div>
+        .neck {
+            background: #000;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+            height: 8px;
+            margin: 0 auto;
+            width: 80px;
+        }
 
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</div>
-                            </div>
+        .mouth {
+            position: relative;
+            height: auto;
+            border-top: 35px solid #2B2B2B;
+            border-left: 5px solid transparent;
+            -webkit-border-radius: 3px 3px;
+            -moz-border-radius: 3px 3px;
+            border-radius: 3px 3px;
+            border-right: 5px solid transparent;
+            margin: 0 auto;
+            top: 80px;
+            width: 70px;
+        }
 
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        .nose {
+            border-left: 15px solid transparent;
+            border-top: 12px solid #000;
+            border-right: 15px solid transparent;
+            height: 0;
+            margin-left: 30%;
+            margin-top: -40px;
+            position: absolute;
+            width: 0;
+        }
 
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
-                        <div class="flex items-center">
-                            <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="-mt-px w-5 h-5 text-gray-400">
-                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
+        .left-eye {
+            border-left: 22px solid transparent;
+            border-right: 22px solid transparent;
+            border-top: 15px solid #fefefe;
+            height: 0;
+            margin-top: 45px;
+            margin-left: 12px;
+            position: absolute;
+            width: 0;
+        }
 
-                            <a href="https://laravel.bigcartel.com" class="ml-1 underline">
-                                Shop
-                            </a>
+        .right-eye {
+            border-left: 22px solid transparent;
+            border-right: 22px solid transparent;
+            border-top: 15px solid #fefefe;
+            width: 0;
+            height: 0;
+            margin-left: 70px;
+            margin-top: 45px;
+            position: absolute;
+        }
 
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
-                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                            </svg>
+        .upper-lip {
+            -webkit-box-shadow: 0px 2px 0px #000;
+            -moz-box-shadow: 0px 2px 0px #000;
+            box-shadow: 0px 2px 0px #000;
+            height: 5px;
+            margin-top: -25px;
+            margin-left: 15px;
+            width: 40px;
+        }
 
-                            <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
-                                Sponsor
-                            </a>
-                        </div>
-                    </div>
+        .lower-lip {
+            -webkit-box-shadow: 0px 2px 0px #000;
+            -moz-box-shadow: 0px 2px 0px #000;
+            box-shadow: 0px 2px 0px #000;
+            height: 5px;
+            margin-top: 0px;
+            margin-left: 25px;
+            width: 20px;
+        }
 
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+        .torso {
+            border-bottom: 125px solid #000;
+            border-left: 12px solid transparent;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            border-right: 12px solid transparent;
+            height: 0;
+            width: 130px;
+            margin: 0 auto;
+        }
+
+        .chin {
+            background: #000;
+            height: 7px;
+            margin-left: 20px;
+            margin-top: 12px;
+            width: 30px;
+        }
+
+        .waist {
+            background: #0F0F0F;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            height: 27px;
+            margin: 0 auto;
+            position: relative;
+            width: 150px;
+        }
+
+        .legs {
+            margin: 0 auto;
+            width: 155px;
+        }
+
+        .left-leg {
+            background: #000;
+            height: 80px;
+            float: left;
+            margin-left: 2px;
+            width: 68px;
+        }
+
+        .croch {
+            background: #000;
+            float: left;
+            height: 30px;
+            width: 15px;
+        }
+
+        .right-leg {
+            background: #000;
+            float: right;
+            height: 80px;
+            margin-right: 2px;
+            width: 68px;
+        }
+
+        .feet {
+            margin: 0 auto;
+            width: 160px;
+        }
+
+        .left-foot {
+            background: #000;
+            float: left;
+            height: 37px;
+            width: 73px;
+        }
+
+        .right-foot {
+            background: #000;
+            float: right;
+            height: 37px;
+            width: 72px;
+        }
+
+        .left-arm {
+            background: #000;
+            height: 45px;
+            margin-left: 320px;
+            margin-top: -150px;
+            position: absolute;
+            width: 105px;
+            z-index: -2;
+        }
+
+        .right-arm {
+            background: #000;
+            height: 45px;
+            margin-left: 540px;
+            margin-top: -150px;
+            position: absolute;
+            width: 105px;
+            z-index: -2;
+        }
+
+        /* batman wings - making them flap when flyind due to air resistance */
+        .wings {
+            -webkit-animation-direction: alternate;
+            -moz-animation-direction: alternate;
+            -ms-animation-direction: alternate;
+            -o-animation-direction: alternate;
+            animation-direction: alternate;
+            -webkit-animation-duration: .4s;
+            -moz-animation-duration: .4s;
+            -ms-animation-duration: .4s;
+            -o-animation-duration: .4s;
+            animation-duration: .4s;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-iteration-count: infinite;
+            -ms-animation-iteration-count: infinite;
+            -o-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            -webkit-animation-name: flapping;
+            -moz-animation-name: flapping;
+            -ms-animation-name: flapping;
+            -o-animation-name: flapping;
+            animation-name: flapping;
+            border-top: 140px solid #EB1E1E;
+            border-left: 225px solid transparent;
+            border-right: 225px solid transparent;
+            margin-left: 260px;
+            margin-top: -115px;
+            width: 0;
+            height: 0;
+            position: absolute;
+            z-index: -3;
+        }
+
+        @keyframes flapping {
+            from {
+                border-top: 140px solid #EB1E1E;
+            }
+
+            to {
+                border-top: 130px solid #EB1E1E;
+            }
+        }
+
+        @-webkit-keyframes flapping {
+            from {
+                border-top: 140px solid #EB1E1E;
+            }
+
+            to {
+                border-top: 130px solid #EB1E1E;
+            }
+        }
+
+        .left-hand {
+            background: #000;
+            -webkit-border-radius: 70px;
+            -moz-border-radius: 70px;
+            border-radius: 70px;
+            margin-top: -152px;
+            margin-left: 280px;
+            height: 50px;
+            position: absolute;
+            width: 50px;
+        }
+
+        .right-hand {
+            background: #000;
+            -webkit-border-radius: 70px;
+            -moz-border-radius: 70px;
+            border-radius: 70px;
+            margin-top: -152px;
+            margin-left: 635px;
+            height: 50px;
+            position: absolute;
+            width: 50px;
+        }
+
+        /* batman chest logo */
+        .bat-body {
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-top: 30px solid #EB1E1E;
+            height: 0;
+            position: absolute;
+            width: 0;
+        }
+
+        .left-bat-ear {
+            border-bottom: 15px solid #EB1E1E;
+            border-right: 15px solid transparent;
+            height: 0;
+            margin-left: 22px;
+            margin-top: -10px;
+            position: absolute;
+            width: 0;
+        }
+
+        .left-bat-wing-1 {
+            border-bottom: 15px solid #EB1E1E;
+            border-right: 15px solid transparent;
+            height: 0;
+            margin-left: 0px;
+            margin-top: -15px;
+            position: absolute;
+            width: 0;
+        }
+
+        .right-bat-ear {
+            border-bottom: 15px solid #EB1E1E;
+            border-left: 15px solid transparent;
+            height: 0;
+            margin-left: 22px;
+            margin-top: -10px;
+            position: absolute;
+            width: 0;
+        }
+
+        .right-bat-wing-1 {
+            border-bottom: 15px solid #EB1E1E;
+            border-left: 15px solid transparent;
+            height: 0;
+            margin-left: 45px;
+            margin-top: -15px;
+            position: absolute;
+            width: 0;
+        }
+
+        .left-bat-wing-2 {
+            border-top: 6px solid #EB1E1E;
+            border-left: 6px solid transparent;
+            height: 0;
+            margin-left: -6px;
+            margin-top: -15px;
+            position: absolute;
+            width: 0;
+        }
+
+        .right-bat-wing-2 {
+            border-top: 6px solid #EB1E1E;
+            border-right: 6px solid transparent;
+            height: 0;
+            margin-left: 60px;
+            margin-top: -15px;
+            position: absolute;
+            width: 0;
+        }
+
+        /* batman belt */
+        .emblem {
+            position: absolute;
+            margin-top: -100px;
+            margin-left: 450px;
+        }
+
+        .belt {
+            margin: 0 auto;
+            position: absolute;
+        }
+
+        .buckle {
+            background: #404040;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            border-radius: 50px;
+            height: 32px;
+            margin-top: -30px;
+            margin-left: 465px;
+            width: 32px;
+        }
+
+        .orb {
+            background: #EB1E1E;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            border-radius: 50px;
+            height: 23px;
+            margin-top: -27px;
+            margin-left: 470px;
+            width: 23px;
+        }
+
+        .cartridge-1 {
+            background: #404040;
+            height: 27px;
+            margin-top: -25px;
+            margin-left: 420px;
+            position: absolute;
+            width: 10px;
+        }
+
+        .cartridge-2 {
+            background: #404040;
+            height: 27px;
+            margin-top: -25px;
+            margin-left: 440px;
+            position: absolute;
+            width: 10px;
+        }
+
+        .cartridge-3 {
+            background: #404040;
+            height: 27px;
+            margin-top: -25px;
+            margin-left: 510px;
+            position: absolute;
+            width: 10px;
+        }
+
+        .cartridge-4 {
+            background: #404040;
+            margin-top: -25px;
+            margin-left: 530px;
+            position: absolute;
+            height: 27px;
+            width: 10px;
+        }
+
+        /* batman arm spikes */
+        .left-spike-1 {
+            border-top: 15px solid #000;
+            border-left: 15px solid transparent;
+            height: 0;
+            margin-left: 325px;
+            margin-top: -105px;
+            position: absolute;
+            width: 0;
+        }
+
+        .left-spike-2 {
+            border-top: 15px solid #000;
+            border-left: 15px solid transparent;
+            height: 0;
+            margin-left: 340px;
+            margin-top: -105px;
+            position: absolute;
+            width: 0;
+        }
+
+        .left-spike-3 {
+            border-top: 15px solid #000;
+            border-left: 15px solid transparent;
+            height: 0;
+            margin-left: 355px;
+            margin-top: -105px;
+            position: absolute;
+            width: 0;
+        }
+
+        .right-spike-1 {
+            border-top: 15px solid #000;
+            border-right: 15px solid transparent;
+            height: 0;
+            margin-left: 625px;
+            margin-top: -105px;
+            width: 0;
+            position: absolute;
+        }
+
+        .right-spike-2 {
+            border-top: 15px solid #000;
+            border-right: 15px solid transparent;
+            height: 0;
+            margin-left: 610px;
+            margin-top: -105px;
+            position: absolute;
+            width: 0;
+        }
+
+        .right-spike-3 {
+            border-top: 15px solid #000;
+            border-right: 15px solid transparent;
+            height: 0;
+            margin-left: 595px;
+            margin-top: -105px;
+            position: absolute;
+            width: 0;
+        }
+
+        /* batman propulsion smoke */
+        .propulsion {
+            margin: 0 auto;
+        }
+
+        .left-jet {
+            -webkit-animation-duration: .8s;
+            -moz-animation-duration: .8s;
+            -ms-animation-duration: .8s;
+            -o-animation-duration: .8s;
+            animation-duration: .8s;
+            -webkit-animation-name: flight;
+            -moz-animation-name: flight;
+            -ms-animation-name: flight;
+            -o-animation-name: flight;
+            animation-name: flight;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-iteration-count: infinite;
+            -ms-animation-iteration-count: infinite;
+            -o-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            -webkit-animation-direction: alternate;
+            -moz-animation-direction: alternate;
+            -ms-animation-direction: alternate;
+            -o-animation-direction: alternate;
+            animation-direction: alternate;
+            background-color: #fff;
+            background: -webkit-gradient(linear, 0 50%, 100% 50%, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 1)));
+            background: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+            background: -moz-linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+            background: -o-linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+            -webkit-border-radius: 75% 75% 100% 100% / 30% 30% 150% 150%;
+            -moz-border-radius: 75% 75% 100% 100% / 30% 30% 150% 150%;
+            border-radius: 75% 75% 100% 100% / 30% 30% 150% 150%;
+            display: block;
+            float: left;
+            height: 200px;
+            margin-left: 410px;
+            margin-top: -15px;
+            opacity: .1;
+            position: relative;
+            width: 55px;
+            z-index: -10;
+        }
+
+        .right-jet {
+            -webkit-animation-duration: .9s;
+            -moz-animation-duration: .9s;
+            -ms-animation-duration: .9s;
+            -o-animation-duration: .9s;
+            animation-duration: .9s;
+            -webkit-animation-name: flight;
+            -moz-animation-name: flight;
+            -ms-animation-name: flight;
+            -o-animation-name: flight;
+            animation-name: flight;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-iteration-count: infinite;
+            -ms-animation-iteration-count: infinite;
+            -o-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            -webkit-animation-direction: alternate;
+            -moz-animation-direction: alternate;
+            -ms-animation-direction: alternate;
+            -o-animation-direction: alternate;
+            animation-direction: alternate;
+            background-color: #fff;
+            background: -webkit-gradient(linear, 0 50%, 100% 50%, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 1)));
+            background: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+            background: -moz-linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+            background: -o-linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+            -webkit-border-radius: 75% 75% 100% 100% / 30% 30% 150% 150%;
+            -moz-border-radius: 75% 75% 100% 100% / 30% 30% 150% 150%;
+            border-radius: 75% 75% 100% 100% / 30% 30% 150% 150%;
+            display: block;
+            float: right;
+            height: 200px;
+            margin-right: 410px;
+            margin-top: -15px;
+            opacity: .1;
+            position: relative;
+            width: 55px;
+            z-index: -40;
+        }
+
+        /* animating the smoke opacity */
+        @keyframes flight {
+            from {
+                opacity: .1;
+            }
+
+            to {
+                opacity: .3;
+            }
+        }
+
+        @-webkit-keyframes flight {
+            from {
+                opacity: .1;
+            }
+
+            to {
+                opacity: .3;
+            }
+        }
+
+        /* the clouds */
+        .cloud-1 {
+            -webkit-animation-delay: 0;
+            -moz-animation-delay: 0;
+            -ms-animation-delay: 0;
+            -o-animation-delay: 0;
+            animation-delay: 0;
+            -webkit-animation-duration: 3s;
+            -moz-animation-duration: 3s;
+            -ms-animation-duration: 3s;
+            -o-animation-duration: 3s;
+            animation-duration: 3s;
+            -webkit-animation-name: cloud-1;
+            -moz-animation-name: cloud-1;
+            -ms-animation-name: cloud-1;
+            -o-animation-name: cloud-1;
+            animation-name: cloud-1;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-iteration-count: infinite;
+            -ms-animation-iteration-count: infinite;
+            -o-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            -webkit-animation-timing-function: ease-in-out;
+            -moz-animation-timing-function: ease-in-out;
+            -ms-animation-timing-function: ease-in-out;
+            -o-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+            margin: 0 auto;
+            margin-left: 25%;
+            margin-top: -600px;
+            opacity: 0;
+            position: absolute;
+            z-index: -11;
+        }
+
+        .cloud-2 {
+            -webkit-animation-delay: 0;
+            -moz-animation-delay: 0;
+            -ms-animation-delay: 0;
+            -o-animation-delay: 0;
+            animation-delay: 0;
+            -webkit-animation-duration: 3s;
+            -moz-animation-duration: 3s;
+            -ms-animation-duration: 3s;
+            -o-animation-duration: 3s;
+            animation-duration: 3s;
+            -webkit-animation-name: cloud-2;
+            -moz-animation-name: cloud-2;
+            -ms-animation-name: cloud-2;
+            -o-animation-name: cloud-2;
+            animation-name: cloud-2;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-iteration-count: infinite;
+            -ms-animation-iteration-count: infinite;
+            -o-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            -webkit-animation-timing-function: ease-in-out;
+            -moz-animation-timing-function: ease-in-out;
+            -ms-animation-timing-function: ease-in-out;
+            -o-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+            margin: 0 auto;
+            margin-left: 50%;
+            margin-top: -500px;
+            opacity: .5;
+        }
+
+        .cloud-3 {
+            -webkit-animation-delay: 0;
+            -moz-animation-delay: 0;
+            -ms-animation-delay: 0;
+            -o-animation-delay: 0;
+            animation-delay: 0;
+            -webkit-animation-duration: 3s;
+            -moz-animation-duration: 3s;
+            -ms-animation-duration: 3s;
+            -o-animation-duration: 3s;
+            animation-duration: 3s;
+            -webkit-animation-name: cloud-3;
+            -moz-animation-name: cloud-3;
+            -ms-animation-name: cloud-3;
+            -o-animation-name: cloud-3;
+            animation-name: cloud-3;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-iteration-count: infinite;
+            -ms-animation-iteration-count: infinite;
+            -o-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            -webkit-animation-timing-function: ease-in-out;
+            -moz-animation-timing-function: ease-in-out;
+            -ms-animation-timing-function: ease-in-out;
+            -o-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+            margin: 0 auto;
+            margin-left: 70%;
+            margin-top: -300px;
+            opacity: .5;
+        }
+
+        /* animating the clouds */
+        @keyframes cloud-1 {
+            from {
+                margin-top: -600px;
+                margin-left: 20%;
+                opacity: 0;
+            }
+
+            45% {
+                opacity: .1;
+            }
+
+            70% {
+                opacity: 0;
+            }
+
+            to {
+                margin-top: 30%;
+                margin-left: 10%;
+                opacity: 0;
+            }
+        }
+
+        @keyframes cloud-2 {
+            from {
+                margin-top: -800px;
+                opacity: 0;
+            }
+
+            45% {
+                opacity: .1;
+            }
+
+            to {
+                margin-top: 30%;
+                margin-left: 50%;
+                opacity: 0;
+            }
+        }
+
+        @keyframes cloud-3 {
+            from {
+                margin-top: -1100px;
+                opacity: 0;
+            }
+
+            35% {
+                opacity: .1;
+            }
+
+            80% {
+                opacity: 0;
+            }
+
+            to {
+                margin-top: 30%;
+                margin-left: 75%;
+                opacity: 0;
+            }
+        }
+
+        @-webkit-keyframes cloud-1 {
+            from {
+                margin-top: -600px;
+                margin-left: 20%;
+                opacity: 0;
+            }
+
+            45% {
+                opacity: .1;
+            }
+
+            70% {
+                opacity: 0;
+            }
+
+            to {
+                margin-top: 30%;
+                margin-left: 10%;
+                opacity: 0;
+            }
+        }
+
+        @-webkit-keyframes cloud-2 {
+            from {
+                margin-top: -800px;
+                opacity: 0;
+            }
+
+            45% {
+                opacity: .1;
+            }
+
+            to {
+                margin-top: 30%;
+                margin-left: 50%;
+                opacity: 0;
+            }
+        }
+
+        @-webkit-keyframes cloud-3 {
+            from {
+                margin-top: -1100px;
+                opacity: 0;
+            }
+
+            35% {
+                opacity: .1;
+            }
+
+            80% {
+                opacity: 0;
+            }
+
+            to {
+                margin-top: 30%;
+                margin-left: 75%;
+                opacity: 0;
+            }
+        }
+
+        .puff-1 {
+            background: #fff;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            border-radius: 50px;
+            height: 100px;
+            position: absolute;
+            width: 100px;
+        }
+
+        .puff-2 {
+            background: #fff;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            border-radius: 50px;
+            height: 100px;
+            margin-left: 75px;
+            position: absolute;
+            width: 100px;
+        }
+
+        .puff-3 {
+            background: #fff;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            border-radius: 50px;
+            height: 100px;
+            margin-left: -25px;
+            margin-top: 30px;
+            position: absolute;
+            width: 100px;
+        }
+
+        .puff-4 {
+            background: #fff;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            border-radius: 50px;
+            height: 100px;
+            margin-left: 50px;
+            margin-top: 30px;
+            position: absolute;
+            width: 100px;
+        }
+
+        .puff-5 {
+            background: #fff;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            border-radius: 50px;
+            height: 100px;
+            margin-left: 125px;
+            margin-top: 30px;
+            position: absolute;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <br><br>
+    <h2 style="text-align: center;">“THE NIGHT IS DARKEST JUST BEFORE THE DAWN. AND I PROMISE YOU, THE DAWN IS COMING.” – BATMAN</h2>
+    <br>
+
+    <div class="batman">
+        <!-- start of batman head -->
+        <div class="head">
+            <div class="left-ear"></div>
+            <div class="right-ear"></div>
+            <div class="mask">
+                <div class="left-eye"></div>
+                <div class="right-eye"></div>
+                <div class="mouth">
+                    <div class="nose"></div>
+                    <div class="upper-lip"></div>
+                    <div class="lower-lip"></div>
+                    <div class="chin">
                     </div>
                 </div>
             </div>
+            <div class="neck">
+            </div>
         </div>
-    </body>
+        <!-- end of batman head -->
+
+        <!-- start of batman body -->
+        <div class="full-body">
+            <div class="torso">
+            </div>
+            <div class="waist">
+            </div>
+            <div class="left-hand">
+            </div>
+            <div class="left-arm">
+            </div>
+            <div class="right-arm">
+            </div>
+            <div class="right-hand">
+            </div>
+            <!-- batman arm spikes -->
+            <div class="spikes">
+                <div class="left-spike-1">
+                </div>
+                <div class="left-spike-2">
+                </div>
+                <div class="left-spike-3">
+                </div>
+                <div class="right-spike-1">
+                </div>
+                <div class="right-spike-2">
+                </div>
+                <div class="right-spike-3">
+                </div>
+            </div>
+            <div class="legs">
+                <div class="left-leg">
+                </div>
+                <div class="croch">
+                </div>
+                <div class="right-leg">
+                </div>
+            </div>
+            <div class="feet">
+                <div class="left-foot">
+                </div>
+                <div class="right-foot">
+                </div>
+            </div>
+            <div class="wings">
+            </div>
+            <!-- the batman beyond logo (sort of) -->
+            <div class="emblem">
+                <div class="left-bat-ear">
+                </div>
+                <div class="right-bat-ear">
+                </div>
+                <div class="left-bat-wing-1">
+                </div>
+                <div class="right-bat-wing-1">
+                </div>
+                <div class="left-bat-wing-2">
+                </div>
+                <div class="right-bat-wing-2">
+                </div>
+                <div class="bat-body">
+                </div>
+            </div>
+            <!-- batman's belt buckle and cartridges-->
+            <div class="belt">
+                <div class="buckle">
+                </div>
+                <div class="orb">
+                </div>
+                <div class="cartridge-1">
+                </div>
+                <div class="cartridge-2">
+                </div>
+                <div class="cartridge-3">
+                </div>
+                <div class="cartridge-4">
+                </div>
+            </div>
+            <!-- propulsion smoke -->
+            <div class="propulsion">
+                <div class="left-jet">
+                </div>
+                <div class="right-jet">
+                </div>
+            </div>
+        </div>
+        <!-- end of batman body -->
+
+        <!-- start of clouds -->
+        <div class="cloud-1">
+            <!-- each cloud is made 5 circes (puffs) -->
+            <div class="puff-1">
+            </div>
+            <div class="puff-2">
+            </div>
+            <div class="puff-3">
+            </div>
+            <div class="puff-4">
+            </div>
+            <div class="puff-5">
+            </div>
+        </div>
+        <div class="cloud-2">
+            <div class="puff-1">
+            </div>
+            <div class="puff-2">
+            </div>
+            <div class="puff-3">
+            </div>
+            <div class="puff-4">
+            </div>
+            <div class="puff-5">
+            </div>
+        </div>
+        <div class="cloud-3">
+            <div class="puff-1">
+            </div>
+            <div class="puff-2">
+            </div>
+            <div class="puff-3">
+            </div>
+            <div class="puff-4">
+            </div>
+            <div class="puff-5">
+            </div>
+        </div>
+        <!-- end of clouds -->
+
+    </div>
+</body>
+
 </html>
