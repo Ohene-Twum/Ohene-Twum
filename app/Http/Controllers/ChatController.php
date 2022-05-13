@@ -30,6 +30,7 @@ class ChatController extends Controller
             'order_id' => 101
         ];
 
+        
         Notification::send($user, new MyFirstNotification($details));
 
     }
