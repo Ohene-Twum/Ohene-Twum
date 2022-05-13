@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\Authentication\UserAuthenticationController;
 use App\Http\Controllers\Authentication\EmailVerifyController;
+use App\Http\Controllers\Audit\AuditingController;
+use App\Http\Controllers\General\NotesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,5 +44,8 @@ Route::middleware('auth:api')->group(function () {
     Route::post('logout', [UserAuthenticationController::class, 'logout']);
     Route::post('messages', [ChatController::class, 'message']);
     Route::get('send', [ChatController::class, 'sendNotification']);
-
+    Route::get('get_user_audits/{id}', [AuditingController::class, 'getUserAudits']);
+    Route::get('get_all_audits', [AuditingController::class, 'getAllAudits']);
+    Route::get('get_audit/{id}', [AuditingController::class, 'getAudit']);
+    Route::resource('notes', NotesController::class);
 });
